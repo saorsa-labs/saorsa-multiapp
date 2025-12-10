@@ -43,23 +43,38 @@ pub trait MigrationService: Send + Sync {
     // Discovery
 
     /// Scan for local ant-node data.
+    ///
+    /// # Errors
+    /// Returns an error if scanning fails.
     async fn scan_local(&self, path: Option<&Path>) -> Result<Vec<MigrationSource>>;
 
     /// Scan autonomi network for user data.
+    ///
+    /// # Errors
+    /// Returns an error if network scan fails.
     async fn scan_network(&self, public_key: &[u8; 32]) -> Result<Vec<MigrationSource>>;
 
     /// Create migration plan from discovered sources.
+    ///
+    /// # Errors
+    /// Returns an error if plan creation fails.
     async fn create_plan(&self, sources: Vec<MigrationSource>) -> Result<MigrationPlan>;
 
     // Execution
 
     /// Start migration.
+    ///
+    /// # Errors
+    /// Returns an error if migration cannot start.
     async fn start(&self, plan: &MigrationPlan) -> Result<()>;
 
     /// Pause migration.
     fn pause(&self);
 
     /// Resume migration.
+    ///
+    /// # Errors
+    /// Returns an error if migration cannot resume.
     async fn resume(&self) -> Result<()>;
 
     /// Cancel migration.
@@ -79,9 +94,15 @@ pub trait MigrationService: Send + Sync {
     // Verification
 
     /// Verify migrated data matches source.
+    ///
+    /// # Errors
+    /// Returns an error if verification fails.
     async fn verify(&self, address: &[u8; 32]) -> Result<VerificationResult>;
 
     /// Verify all migrated data.
+    ///
+    /// # Errors
+    /// Returns an error if verification fails.
     async fn verify_all(&self) -> Result<Vec<VerificationResult>>;
 }
 

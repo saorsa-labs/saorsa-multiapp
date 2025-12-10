@@ -38,7 +38,7 @@ impl SessionManager {
 
     /// Get current session state.
     #[must_use]
-    pub fn state(&self) -> SessionState {
+    pub const fn state(&self) -> SessionState {
         self.state
     }
 
@@ -50,8 +50,7 @@ impl SessionManager {
     /// Check if session should auto-lock.
     #[must_use]
     pub fn should_lock(&self) -> bool {
-        self.state == SessionState::Unlocked
-            && self.last_activity.elapsed() >= self.lock_timeout
+        self.state == SessionState::Unlocked && self.last_activity.elapsed() >= self.lock_timeout
     }
 }
 

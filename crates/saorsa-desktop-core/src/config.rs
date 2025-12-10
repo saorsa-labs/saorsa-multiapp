@@ -5,7 +5,7 @@ use std::path::PathBuf;
 use std::time::Duration;
 
 /// Main application configuration.
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct AppConfig {
     /// Node configuration.
     pub node: NodeConfig,
@@ -17,18 +17,6 @@ pub struct AppConfig {
     pub media: MediaConfig,
     /// UI configuration.
     pub ui: UiConfig,
-}
-
-impl Default for AppConfig {
-    fn default() -> Self {
-        Self {
-            node: NodeConfig::default(),
-            wallet: WalletConfig::default(),
-            sync: SyncConfig::default(),
-            media: MediaConfig::default(),
-            ui: UiConfig::default(),
-        }
-    }
 }
 
 /// Node connection configuration.
@@ -73,7 +61,7 @@ impl Default for WalletConfig {
 impl WalletConfig {
     /// Get auto-lock timeout as Duration.
     #[must_use]
-    pub fn auto_lock_timeout(&self) -> Duration {
+    pub const fn auto_lock_timeout(&self) -> Duration {
         Duration::from_secs(self.auto_lock_seconds)
     }
 }
@@ -123,7 +111,7 @@ pub struct MediaConfig {
 impl Default for MediaConfig {
     fn default() -> Self {
         Self {
-            min_buffer_bytes: 256 * 1024,       // 256KB
+            min_buffer_bytes: 256 * 1024,         // 256KB
             target_buffer_bytes: 4 * 1024 * 1024, // 4MB
             prefetch_chunks: 8,
             default_volume: 0.8,

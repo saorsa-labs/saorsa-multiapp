@@ -26,9 +26,15 @@ pub enum NodeConnectConfig {
 #[async_trait]
 pub trait NodeService: Send + Sync {
     /// Connect to the network.
+    ///
+    /// # Errors
+    /// Returns an error if connection fails.
     async fn connect(&self, config: NodeConnectConfig) -> Result<()>;
 
     /// Disconnect from the network.
+    ///
+    /// # Errors
+    /// Returns an error if disconnection fails.
     async fn disconnect(&self) -> Result<()>;
 
     /// Get the current connection status.
@@ -38,11 +44,20 @@ pub trait NodeService: Send + Sync {
     fn stats(&self) -> NetworkStats;
 
     /// Store data chunk on the network.
+    ///
+    /// # Errors
+    /// Returns an error if storage fails.
     async fn put_chunk(&self, data: bytes::Bytes) -> Result<[u8; 32]>;
 
     /// Retrieve data chunk from the network.
+    ///
+    /// # Errors
+    /// Returns an error if retrieval fails.
     async fn get_chunk(&self, address: &[u8; 32]) -> Result<Option<bytes::Bytes>>;
 
     /// Check if data exists on the network.
+    ///
+    /// # Errors
+    /// Returns an error if check fails.
     async fn exists(&self, address: &[u8; 32]) -> Result<bool>;
 }

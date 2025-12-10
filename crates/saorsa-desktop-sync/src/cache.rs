@@ -6,7 +6,7 @@ pub struct ChunkCache;
 impl ChunkCache {
     /// Create a new chunk cache.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

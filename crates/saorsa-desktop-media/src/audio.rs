@@ -6,7 +6,7 @@ pub struct AudioPlayer;
 impl AudioPlayer {
     /// Create a new audio player.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

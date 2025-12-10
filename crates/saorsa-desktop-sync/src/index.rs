@@ -1,4 +1,4 @@
-//! SQLite sync index.
+//! `SQLite` sync index.
 
 /// Sync index for tracking file states.
 pub struct SyncIndex;
@@ -6,7 +6,7 @@ pub struct SyncIndex;
 impl SyncIndex {
     /// Create a new sync index.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

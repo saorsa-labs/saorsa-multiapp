@@ -2,7 +2,7 @@
 
 use dioxus::prelude::*;
 use dioxus_router::prelude::Router;
-use saorsa_desktop_core::{create_event_bus, AppState};
+use saorsa_desktop_core::{AppState, create_event_bus};
 
 use crate::components::{Navbar, Sidebar, Toast};
 use crate::router::Route;

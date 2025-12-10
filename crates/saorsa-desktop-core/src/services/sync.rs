@@ -55,9 +55,15 @@ pub trait SyncService: Send + Sync {
     // Folder management
 
     /// Add a folder to sync.
+    ///
+    /// # Errors
+    /// Returns an error if the folder cannot be added.
     async fn add_folder(&self, path: &Path, options: SyncFolderOptions) -> Result<[u8; 16]>;
 
     /// Remove a folder from sync.
+    ///
+    /// # Errors
+    /// Returns an error if the folder cannot be removed.
     async fn remove_folder(&self, folder_id: &[u8; 16]) -> Result<()>;
 
     /// Get all synced folders.
@@ -67,6 +73,9 @@ pub trait SyncService: Send + Sync {
     fn folder_status(&self, folder_id: &[u8; 16]) -> Option<SyncFolderStatus>;
 
     /// Update folder options.
+    ///
+    /// # Errors
+    /// Returns an error if update fails.
     async fn update_folder_options(
         &self,
         folder_id: &[u8; 16],
@@ -76,9 +85,15 @@ pub trait SyncService: Send + Sync {
     // Sync operations
 
     /// Start sync engine.
+    ///
+    /// # Errors
+    /// Returns an error if the engine cannot start.
     async fn start(&self) -> Result<()>;
 
     /// Stop sync engine.
+    ///
+    /// # Errors
+    /// Returns an error if the engine cannot stop.
     async fn stop(&self) -> Result<()>;
 
     /// Pause sync.
@@ -88,9 +103,15 @@ pub trait SyncService: Send + Sync {
     fn resume(&self);
 
     /// Force sync a specific folder now.
+    ///
+    /// # Errors
+    /// Returns an error if sync fails.
     async fn sync_now(&self, folder_id: &[u8; 16]) -> Result<()>;
 
     /// Force sync all folders now.
+    ///
+    /// # Errors
+    /// Returns an error if sync fails.
     async fn sync_all_now(&self) -> Result<()>;
 
     // Conflict handling
@@ -99,9 +120,15 @@ pub trait SyncService: Send + Sync {
     fn get_conflicts(&self) -> Vec<SyncConflict>;
 
     /// Resolve a conflict.
+    ///
+    /// # Errors
+    /// Returns an error if resolution fails.
     async fn resolve_conflict(&self, path: &str, resolution: ConflictResolution) -> Result<()>;
 
     /// Resolve all conflicts with same resolution.
+    ///
+    /// # Errors
+    /// Returns an error if any resolution fails.
     async fn resolve_all_conflicts(&self, resolution: ConflictResolution) -> Result<()>;
 
     // Statistics

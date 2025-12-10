@@ -6,7 +6,7 @@ pub struct DataScanner;
 impl DataScanner {
     /// Create a new data scanner.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

@@ -6,7 +6,7 @@ pub struct MediaLibrary;
 impl MediaLibrary {
     /// Create a new media library.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

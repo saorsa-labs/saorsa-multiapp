@@ -5,7 +5,7 @@
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
 
-use tracing_subscriber::{fmt, prelude::*, EnvFilter};
+use tracing_subscriber::{EnvFilter, fmt, prelude::*};
 
 mod app;
 mod components;
@@ -19,7 +19,9 @@ fn main() {
     // Initialize logging
     tracing_subscriber::registry()
         .with(fmt::layer())
-        .with(EnvFilter::from_default_env().add_directive("saorsa=debug".parse().unwrap_or_default()))
+        .with(
+            EnvFilter::from_default_env().add_directive("saorsa=debug".parse().unwrap_or_default()),
+        )
         .init();
 
     tracing::info!("Starting Saorsa Desktop Application");

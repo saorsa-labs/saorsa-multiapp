@@ -6,7 +6,7 @@ pub struct PlaylistManager;
 impl PlaylistManager {
     /// Create a new playlist manager.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

@@ -3,12 +3,10 @@
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
-use crate::pages::{
-    Home, Media, Migration, NotFound, Settings, Sync, Wallet,
-};
+use crate::pages::{Home, Media, Migration, NotFound, Settings, Sync, Wallet};
 
 /// Application routes.
-#[derive(Clone, Routable, Debug, PartialEq)]
+#[derive(Clone, Routable, Debug, PartialEq, Eq)]
 #[rustfmt::skip]
 pub enum Route {
     /// Home page.

@@ -18,5 +18,5 @@ pub mod state;
 
 pub use config::AppConfig;
 pub use error::{Error, Result};
-pub use events::{create_event_bus, AppEvent, EventBus, SharedEventBus};
+pub use events::{AppEvent, EventBus, SharedEventBus, create_event_bus};
 pub use state::AppState;

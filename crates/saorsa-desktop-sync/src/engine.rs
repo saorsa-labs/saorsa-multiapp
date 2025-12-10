@@ -20,7 +20,7 @@ pub struct SyncEngine {
 impl SyncEngine {
     /// Create a new sync engine.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self {
             state: SyncEngineState::Stopped,
         }
@@ -28,7 +28,7 @@ impl SyncEngine {
 
     /// Get current state.
     #[must_use]
-    pub fn state(&self) -> SyncEngineState {
+    pub const fn state(&self) -> SyncEngineState {
         self.state
     }
 }

@@ -55,12 +55,12 @@ pub enum Error {
 
 impl From<std::io::Error> for Error {
     fn from(e: std::io::Error) -> Self {
-        Error::FileSystem(e.to_string())
+        Self::FileSystem(e.to_string())
     }
 }
 
 impl From<serde_json::Error> for Error {
     fn from(e: serde_json::Error) -> Self {
-        Error::Serialization(e.to_string())
+        Self::Serialization(e.to_string())
     }
 }

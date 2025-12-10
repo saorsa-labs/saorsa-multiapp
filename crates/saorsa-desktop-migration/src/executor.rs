@@ -6,7 +6,7 @@ pub struct MigrationExecutor;
 impl MigrationExecutor {
     /// Create a new migration executor.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self
     }
 }

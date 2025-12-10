@@ -54,7 +54,7 @@ pub struct Vault {
 impl Vault {
     /// Create a new vault manager.
     #[must_use]
-    pub fn new(path: PathBuf) -> Self {
+    pub const fn new(path: PathBuf) -> Self {
         Self { path }
     }
 
@@ -66,7 +66,7 @@ impl Vault {
 
     /// Get vault path.
     #[must_use]
-    pub fn path(&self) -> &PathBuf {
+    pub const fn path(&self) -> &PathBuf {
         &self.path
     }
 }
