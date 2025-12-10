@@ -1,0 +1,105 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/saorsa-desktop",
+    "crates/saorsa-desktop-core",
+    "crates/saorsa-desktop-wallet",
+    "crates/saorsa-desktop-sync",
+    "crates/saorsa-desktop-media",
+    "crates/saorsa-desktop-migration",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+authors = ["David Irvine <david.irvine@maidsafe.net>"]
+license = "GPL-3.0"
+repository = "https://github.com/dirvine/saorsa-multiapp"
+description = "Quantum-resistant desktop application for the Saorsa decentralized network"
+
+[workspace.dependencies]
+# Internal crates
+saorsa-desktop-core = { path = "crates/saorsa-desktop-core" }
+saorsa-desktop-wallet = { path = "crates/saorsa-desktop-wallet" }
+saorsa-desktop-sync = { path = "crates/saorsa-desktop-sync" }
+saorsa-desktop-media = { path = "crates/saorsa-desktop-media" }
+saorsa-desktop-migration = { path = "crates/saorsa-desktop-migration" }
+
+# External network crates
+saorsa-node = { path = "../saorsa-node" }
+
+# UI framework
+dioxus = { version = "0.6", features = ["desktop"] }
+dioxus-router = "0.6"
+
+# Async runtime
+tokio = { version = "1.42", features = ["full"] }
+
+# Crypto
+bip39 = "2.1"
+argon2 = "0.5"
+chacha20poly1305 = "0.10"
+zeroize = { version = "1.8", features = ["derive"] }
+secrecy = "0.10"
+hkdf = "0.12"
+sha2 = "0.10"
+sha3 = "0.10"
+hmac = "0.12"
+secp256k1 = { version = "0.29", features = ["hashes", "rand"] }
+
+# Storage
+rusqlite = { version = "0.37", features = ["bundled"] }
+rmp-serde = "1"
+
+# Media (audio)
+rodio = "0.20"
+
+# Utilities
+notify = "7"
+directories = "5"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+bytes = "1.9"
+getrandom = "0.2"
+hex = "0.4"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Error handling
+thiserror = "2"
+anyhow = "1"
+
+# Async utilities
+futures = "0.3"
+async-trait = "0.1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Testing
+tempfile = "3"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+all = "deny"
+pedantic = "warn"
+nursery = "warn"
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

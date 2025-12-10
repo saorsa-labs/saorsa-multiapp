@@ -1,0 +1,29 @@
+# Generated files
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local configuration
+.env
+.env.local
+
+# Build artifacts
+*.deb
+*.rpm
+*.dmg
+*.exe
+*.msi

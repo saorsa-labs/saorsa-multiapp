@@ -1,0 +1,42 @@
+[package]
+name = "saorsa-desktop-media"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Music and video playback for Saorsa desktop application"
+
+[dependencies]
+# Internal
+saorsa-desktop-core.workspace = true
+
+# Network
+saorsa-node.workspace = true
+
+# Audio
+rodio.workspace = true
+
+# Async
+tokio.workspace = true
+async-trait.workspace = true
+futures.workspace = true
+
+# Serialization
+serde.workspace = true
+rmp-serde.workspace = true
+
+# Utilities
+thiserror.workspace = true
+tracing.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+bytes.workspace = true
+directories.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

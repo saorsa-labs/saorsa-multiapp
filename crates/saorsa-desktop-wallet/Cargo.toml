@@ -1,0 +1,51 @@
+[package]
+name = "saorsa-desktop-wallet"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Wallet and key management for Saorsa desktop application"
+
+[dependencies]
+# Internal
+saorsa-desktop-core.workspace = true
+
+# Network (for saorsa-pqc types)
+saorsa-node.workspace = true
+
+# Crypto
+bip39.workspace = true
+argon2.workspace = true
+chacha20poly1305.workspace = true
+zeroize.workspace = true
+secrecy.workspace = true
+hkdf.workspace = true
+sha2.workspace = true
+sha3.workspace = true
+hmac.workspace = true
+secp256k1.workspace = true
+getrandom.workspace = true
+hex.workspace = true
+
+# Async
+tokio.workspace = true
+async-trait.workspace = true
+
+# Serialization
+serde.workspace = true
+rmp-serde.workspace = true
+
+# Utilities
+thiserror.workspace = true
+tracing.workspace = true
+chrono.workspace = true
+uuid.workspace = true
+directories.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true
