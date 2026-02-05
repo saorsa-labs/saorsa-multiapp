@@ -24,6 +24,9 @@ futures.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 
+# Crypto
+sha2.workspace = true
+
 # Utilities
 thiserror.workspace = true
 tracing.workspace = true
@@ -31,6 +34,7 @@ chrono.workspace = true
 uuid.workspace = true
 bytes.workspace = true
 directories.workspace = true
+workspace-hack = { version = "0.1", path = "../../workspace-hack" }
 
 [dev-dependencies]
 tempfile.workspace = true

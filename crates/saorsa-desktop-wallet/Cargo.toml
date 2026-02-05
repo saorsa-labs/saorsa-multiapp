@@ -43,6 +43,7 @@ tracing.workspace = true
 chrono.workspace = true
 uuid.workspace = true
 directories.workspace = true
+workspace-hack = { version = "0.1", path = "../../workspace-hack" }
 
 [dev-dependencies]
 tempfile.workspace = true

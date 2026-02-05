@@ -7,6 +7,7 @@ members = [
     "crates/saorsa-desktop-sync",
     "crates/saorsa-desktop-media",
     "crates/saorsa-desktop-migration",
+    "workspace-hack",
 ]
 
 [workspace.package]
@@ -96,6 +97,26 @@ expect_used = "deny"
 panic = "deny"
 # Allow this for Dioxus component macros that generate PartialEq
 derive_partial_eq_without_eq = "allow"
+# Allow common casts in storage/network code
+cast_possible_truncation = "allow"
+cast_possible_wrap = "allow"
+cast_sign_loss = "allow"
+# Allow non-const functions that could theoretically be const
+missing_const_for_fn = "allow"
+# Allow functions that should have must_use (we'll add manually where critical)
+must_use_candidate = "allow"
+# Allow case-sensitive extension checks (we want exact matches)
+case_sensitive_file_extension_comparisons = "allow"
+# Allow async functions without await (useful for trait compatibility)
+unused_async = "allow"
+# Allow identical match arms in pattern matching
+match_same_arms = "allow"
+# Allow pass by value when cloning anyway
+needless_pass_by_value = "allow"
+# Allow significant drop tightening (false positives with locks)
+significant_drop_tightening = "allow"
+# Allow option_if_let_else (sometimes match/if-let is clearer)
+option_if_let_else = "allow"
 
 [profile.dev]
 opt-level = 1
