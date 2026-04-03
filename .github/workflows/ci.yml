@@ -20,8 +20,8 @@ jobs:
       - name: Checkout saorsa-node
         uses: actions/checkout@v4
         with:
-          repository: dirvine/saorsa-node
-          path: saorsa-node
+          repository: saorsa-labs/saorsa-node
+          path: ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -68,8 +68,8 @@ jobs:
       - name: Checkout saorsa-node
         uses: actions/checkout@v4
         with:
-          repository: dirvine/saorsa-node
-          path: saorsa-node
+          repository: saorsa-labs/saorsa-node
+          path: ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -104,8 +104,8 @@ jobs:
       - name: Checkout saorsa-node
         uses: actions/checkout@v4
         with:
-          repository: dirvine/saorsa-node
-          path: saorsa-node
+          repository: saorsa-labs/saorsa-node
+          path: ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -138,8 +138,8 @@ jobs:
       - name: Checkout saorsa-node
         uses: actions/checkout@v4
         with:
-          repository: dirvine/saorsa-node
-          path: saorsa-node
+          repository: saorsa-labs/saorsa-node
+          path: ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
