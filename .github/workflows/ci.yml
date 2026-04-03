@@ -18,10 +18,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Checkout saorsa-node
-        uses: actions/checkout@v4
-        with:
-          repository: saorsa-labs/saorsa-node
-          path: ../saorsa-node
+        run: git clone --depth 1 https://github.com/saorsa-labs/saorsa-node.git ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -66,10 +63,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Checkout saorsa-node
-        uses: actions/checkout@v4
-        with:
-          repository: saorsa-labs/saorsa-node
-          path: ../saorsa-node
+        run: git clone --depth 1 https://github.com/saorsa-labs/saorsa-node.git ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -102,10 +96,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Checkout saorsa-node
-        uses: actions/checkout@v4
-        with:
-          repository: saorsa-labs/saorsa-node
-          path: ../saorsa-node
+        run: git clone --depth 1 https://github.com/saorsa-labs/saorsa-node.git ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -136,10 +127,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Checkout saorsa-node
-        uses: actions/checkout@v4
-        with:
-          repository: saorsa-labs/saorsa-node
-          path: ../saorsa-node
+        run: git clone --depth 1 https://github.com/saorsa-labs/saorsa-node.git ../saorsa-node
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
