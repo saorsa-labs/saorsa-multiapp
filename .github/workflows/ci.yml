@@ -48,6 +48,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout saorsa-node
+        run: git clone --depth 1 https://github.com/saorsa-labs/saorsa-node.git ../saorsa-node
+
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
